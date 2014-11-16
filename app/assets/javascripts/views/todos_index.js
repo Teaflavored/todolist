@@ -11,6 +11,7 @@ window.Todo.Views.TodosIndex = Backbone.View.extend({
   refresh: function(){
     this.collection.fetch()
   },
+  
   render: function(){
     //building HTML in JS code, not good
     var renderedContent = this.template({

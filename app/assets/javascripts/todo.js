@@ -3,10 +3,14 @@ window.Todo = {
   Collections: {},
   Views: {},
   intialize: function(){
-    var view = new window.Todo.Views.TodosIndex({
+    var indexView = new window.Todo.Views.TodosIndex({
       collection: Todo.Collections.todos
     });
     Todo.Collections.todos.fetch();
+    $("body").append(indexView.render().$el)
+
+
+    var view = new Todo.Views.TodosNew();
     $("body").append(view.render().$el)
   }
 };
