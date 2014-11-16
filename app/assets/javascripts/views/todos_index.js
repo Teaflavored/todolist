@@ -1,20 +1,15 @@
 window.Todo.Views.TodosIndex = Backbone.View.extend({
   template: JST["todos/index"],
-  // initialize: function(options){
-  //   this.collection = options.collection;
-  // },
 
+  initialize: function (options){
+    this.listenTo(this.collection, "sync add", this.render.bind(this))
+  },
   events:{
     "click button#refresh": "refresh"
   },
 
   refresh: function(){
-    var view = this;
-    this.collection.fetch({
-      success: function(){
-        view.render();
-      }
-    })
+    this.collection.fetch()
   },
   render: function(){
     //building HTML in JS code, not good
