@@ -19,6 +19,24 @@ class Api::TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+      render json: @todo
+    else
+      render json: @todo.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      render json: @todo
+    else
+      raise "WTF?"
+    end
+  end
+
   private
   def todo_params
     params.require(:todo).permit(:title)

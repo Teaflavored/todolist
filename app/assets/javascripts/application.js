@@ -15,4 +15,6 @@
 //= require underscore
 //= require backbone
 //= require turbolinks
-//= require_tree .
+//= require todo.js
+//= require_tree ./models
+//= require_tree ./collections
