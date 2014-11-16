@@ -22,6 +22,7 @@ window.Todo.Views.TodosNew = Backbone.View.extend({
     newTodo.save({},{
       success: function(){
         Todo.Collections.todos.add(newTodo)
+        Backbone.history.navigate("",{trigger: true});
       }
     })
   }

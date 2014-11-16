@@ -1,11 +1,15 @@
 <h3>Todos Index</h3>
+
+
+<button id="refresh">Refresh</button>
+
 <ul>
   <% todos.each(function (todo) { %>
     <li>
-      <%= todo.get("title") %>
+      <a href="#/todos/<%= todo.get("id") %>"><%= todo.get("title")%></a>
 
     </li>
   <% }) %>
 </ul>
 
-<button id="refresh">Refresh</button>
+<a href="#/todos/new">New Todo</a>
