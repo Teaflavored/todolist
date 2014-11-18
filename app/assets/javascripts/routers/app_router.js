@@ -10,13 +10,14 @@ window.Todo.Routers.AppRouter = Backbone.Router.extend({
       collection: Todo.Collections.todos
     });
     Todo.Collections.todos.fetch();
-    $("body").html(indexView.render().$el)
+
+    this._swapView(indexView)
   },
 
   todosNew: function(){
 
     var view = new Todo.Views.TodosNew();
-    $("body").html(view.render().$el)
+    this._swapView(view)
   },
 
   todosShow: function(id){
@@ -26,6 +27,14 @@ window.Todo.Routers.AppRouter = Backbone.Router.extend({
       model: todo
     })
 
-    $("body").html(showView.render().$el)
+    this._swapView(showView)
+  },
+
+  _swapView: function(view){
+    if (this.currentView){
+      this.currentView.remove();
+    }
+    this.currentView = view;
+    $("body").html(view.render().$el);
   }
 })
