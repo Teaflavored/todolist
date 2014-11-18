@@ -16,7 +16,6 @@ window.Todo.Views.TodosNew = Backbone.View.extend({
 
     var params = $(event.currentTarget).serializeJSON()["todo"]
 
-
     var newTodo = new Todo.Models.Todo(params);
 
     newTodo.save({},{

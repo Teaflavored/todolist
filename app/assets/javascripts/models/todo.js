@@ -3,7 +3,7 @@ window.Todo.Models.Todo = Backbone.Model.extend({
   urlRoot: "/api/todos",
 
   comments: function(){
-    if(!this._comments){
+    if(this._comments === undefined){
       this._comments = new Todo.Collections.TodoComments([], { todo: this })
     }
 
@@ -12,7 +12,7 @@ window.Todo.Models.Todo = Backbone.Model.extend({
 
   parse: function (jsonResp){
     if(jsonResp.comments){
-      this.comments().set(jsonResp.comments, {parse: true})
+      this.comments().set(jsonResp.comments)
       delete jsonResp.comments;
     }
 

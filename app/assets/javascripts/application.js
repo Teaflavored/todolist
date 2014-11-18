@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require marked.min
 //= require backbone
 //= require jquery.serializejson
 //= require turbolinks

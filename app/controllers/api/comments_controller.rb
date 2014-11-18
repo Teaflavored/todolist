@@ -6,6 +6,8 @@ class Api::CommentsController < ApplicationController
 
   def create
     @comment = TodoComment.new(comment_params)
+    p comment_params
+    p @comment
     if @comment.save
       render "comments/show"
     else

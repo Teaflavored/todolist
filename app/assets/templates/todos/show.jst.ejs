@@ -2,8 +2,11 @@
 <ul>
   <% todo.comments().each(function (comment) { %>
     <li>
-      <%= comment.get("content") %>
+      <%= marked(comment.escape("content"))  %>
     </li>
   <% }) %>
 </ul>
+
+<div class="comment-new">
+</div>
 <a href="#/">Back to Index</a>
